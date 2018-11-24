@@ -9,6 +9,6 @@ public function __construct()
     }
 	public function index()
 	{
-		$this->load->view('site/index');
+		$this->load->view('Admin/index');
 	}
 }

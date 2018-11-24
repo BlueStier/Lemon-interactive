@@ -62,7 +62,7 @@ class CI_Email {
 	 *
 	 * @var	string
 	 */
-	public $mailpath	= '/usr/sbin/sendmail';	// Sendmail path
+	public $mailpath	= '/usr/sbin/';	// Sendmail path
 
 	/**
 	 * Which method to use for sending e-mails.
