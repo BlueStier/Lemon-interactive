@@ -59,9 +59,8 @@
 						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 							<ul class="nav navbar-nav navbar-right">
 								<li><a href="<?php echo base_url() ?>">Acceuil</a></li>
-                <li><a href="<?php echo base_url() ?>site/1">S'inscrire</a></li>								
-                <li><a href="<?php echo base_url() ?>site/2">Contact</a></li>
-                <li><a href="<?php echo base_url() ?>site/3">Administrateur</a></li>
+                <li><a href="<?php echo base_url() ?>site/1">S'inscrire</a></li>					 
+                <li><a href="<?php echo base_url() ?>admin">Administrateur</a></li>
 							</ul>
 							</div><!-- /.navbar-collapse -->
 							</div><!-- /.container-fluid -->

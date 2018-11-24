@@ -39,6 +39,11 @@ public function __construct()
             $this->load->view('site/inscription',$data);
             $this->load->view('site/elements_fixes/footer');
             break;
+            case 2 :
+            $this->load->view('site/elements_fixes/header');            
+            $this->load->view('site/loic_roussel');
+            $this->load->view('site/elements_fixes/footer');
+            break;
             default :
             //si défault on renvoi à la page d'acceuil
             header('Location:'.base_url());
@@ -62,10 +67,12 @@ public function __construct()
             //si les critères ne sont pas ok on renvoit à la page d'inxcription avec info champ manquant
             Site::view(1);
         }else{
-            $nom = $this->input->post('nom');
-            $prenom = $this->input->post('prenom');
-            $date_naissance = $this->input->post('date_de_naissance');
-            $email = $this->input->post('email');
+            //on charge la classe de sécurité pour utiliser la fonction xss_clean()
+            $this->load->helper('security_helper');            
+            $nom = $this->security->xss_clean($this->input->post('nom'));            
+            $prenom = $this->security->xss_clean($this->input->post('prenom'));
+            $date_naissance = $this->input->post('date_de_naissance');           
+            $email = $this->security->xss_clean($this->input->post('email'));
             $sexe = $this->input->post('sexe');
             $pays = $this->input->post('pays');
             $metier = $this->input->post('metier');
@@ -74,7 +81,7 @@ public function __construct()
             $this->Inscrits_model->create($nom,$prenom,$date_naissance,$email,$sexe,$pays,$metier);
             //On charge le model Send_mail et on appel la fonction send()
             $this->load->model('Send_mail_model');
-            $this->Send_mail_model->send($nom,$prenom,$date_naissance,$email,$sexe,$pays,$metier);
+            /*$this->Send_mail_model->send($nom,$prenom,$date_naissance,$email,$sexe,$pays,$metier);*/
             //on renvoie le visiteur sur la page d'acceuil avec un petit message de confirmation d'inscription
             $message = 'Bravo !!! Vous êtes inscrits !! Vous recevrez un mail de confirmation dans quelques instants.';
             Site::index($message);

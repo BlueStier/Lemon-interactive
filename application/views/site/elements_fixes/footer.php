@@ -8,7 +8,7 @@
 						<li><a href="https://www.lemon-interactive.fr/">Lemon-Interactive</a></li>
 						<li><a href="https://www.lemon-interactive.fr/vocation/">L'agence</a></li>
 						<li><a href="https://github.com/BlueStier/Lemon-interactive">GitHub BlueStier</a></li>
-						<li><a href="#">Loïc Roussel qui est-ce ?</a></li>						
+						<li><a href="<?php echo base_url() ?>site/2">Loïc Roussel qui est-ce ?</a></li>						
 					</ul>
 				</div>
 				<p class="copyright">Copyright 2018 &copy;Réalisé par BlueStier | Design par <a href="http://www.themefisher.com">themefisher.com</a>. All rights reserved.
