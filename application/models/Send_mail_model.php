@@ -2,6 +2,8 @@
 class Send_mail_model extends CI_Model {
 
     public function send($nom,$prenom,$date_naissance,$email,$sexe,$pays,$metier){
+        //on retourne la date de naissance pour que ce soit au format français
+        
         //préparation du mail
         $message = "<h1>Bonjour ".$prenom." ".$nom."</h1><br><br><br> 
         Nous avons bien reçu enregistrer votre inscription.<br>
