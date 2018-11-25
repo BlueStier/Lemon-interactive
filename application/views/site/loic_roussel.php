@@ -31,9 +31,9 @@
                 <p>A 27 ans, il reprend les arts matiaux : <a href="https://fr.wikipedia.org/wiki/Kyokushinkai">le Kyokushinkai</a></p>
                 <p>28 ans, ding…ding…ding… les cloches sonnent le jour de son mariage.</p>
                 <p>32 ans, son fils lui dit « papa » pour la première fois (cœur qui bat, émotion, les yeux embués).</p>
-                <p>36 ans, c’est au tour de son deuxième fils de prononcé le mot que tous les hommes souhaite entendre (c’est marrant il est habitué à l’entendre mais il verse une petite larme tout de même ).</p>
+                <p>35 ans, c’est au tour de son deuxième fils de prononcer le mot que tous les hommes souhaite entendre (c’est marrant il est habitué à l’entendre mais il verse une petite larme tout de même ).</p>
                 <p>Voilà, voilà... Ah oui, sinon au niveau job, il suffit de cliquer pour avoir son CV...</p>
-                <p>Ps : Il aurait pas le "syndrome du Roi Soleil" à parler de lui à la 3ème personne ? </p>
+                <p>Ps : Il aurait pas le "syndrome Alain Delon" à parler de lui à la 3ème personne ? </p>
                 <a href="<?php echo base_url() ?>assets/site/CV.pdf" target='blank' class="btn btn-small mt-20">Voir son Curriculum Vitae</a>
 			</div>
 		</div>

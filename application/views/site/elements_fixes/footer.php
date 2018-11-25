@@ -5,9 +5,9 @@
 			<div class="col-md-12">
 				<div class="footer-manu">
 					<ul>
-						<li><a href="https://www.lemon-interactive.fr/">Lemon-Interactive</a></li>
-						<li><a href="https://www.lemon-interactive.fr/vocation/">L'agence</a></li>
-						<li><a href="https://github.com/BlueStier/Lemon-interactive">GitHub BlueStier</a></li>
+						<li><a href="https://www.lemon-interactive.fr/" target='blank'>Lemon-Interactive</a></li>
+						<li><a href="https://www.lemon-interactive.fr/vocation/" target='blank'>L'agence</a></li>
+						<li><a href="https://github.com/BlueStier/Lemon-interactive" target='blank'>GitHub BlueStier</a></li>
 						<li><a href="<?php echo base_url() ?>site/2">Loïc Roussel qui est-ce ?</a></li>						
 					</ul>
 				</div>

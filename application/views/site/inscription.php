@@ -79,11 +79,7 @@ function maPosition(position) {
 				var ville
 				//récupère les éléments de l'adresse
 				var elt = results[0].address_components;
-          	for(i in elt){            
-            	if(elt[i].types[0] == 'locality')
-            	ville = elt[i].long_name;
-            	if(elt[i].types[0] == 'administrative_area_level_2')
-            	region = elt[i].long_name;
+          	for(i in elt){          
 				if(elt[i].types[0] == 'country')
             	pays = elt[i].long_name;
 		  }
