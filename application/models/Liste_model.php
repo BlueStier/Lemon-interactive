@@ -1,5 +1,5 @@
 <?php
-class Liste_des_pays_model extends CI_Model {
+class Liste_model extends CI_Model {
     
 
     public function get_contry(){
@@ -258,5 +258,11 @@ array('716', 'ZWE', 'ZW', 'Zimbabwe')
 );
 
 return $countryCode;
+    }
+
+    public function get_job(){
+        return array('Artisan','Cadre de la fonction publique','Cadre privé','Commerçant','Employé','Employé de la fonction publique',
+    'Indépendant','Profession libérale');
+    
     }
 }

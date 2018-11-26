@@ -34,27 +34,27 @@
     <label for="femme" class='col-md-3'> une femme</label>  
 	</div>
 	<label class="col-md-12 form-control">Choissisez votre pays : </label>
-	<select class="col-md-12 form-control" name='pays' id="pays_a_selectionner">
+	<select class="col-md-12 form-control" name='pays' id="pays_a_selectionner" onChange='delete_region();'>
 	<?php foreach($country as $pays):
 	echo"<option>".$pays[3]."</option>";
 	endforeach;
 	?>
 	</select>
+	<label class="col-md-12 form-control">Votre zone géographique (facultatif) : </label>
+	<input type="text" class="col-md-12 form-control" name='region' id="region" placeholder="Votre région" />
 	<label class="col-md-12 form-control">Quel est votre métier : </label>
 	<select class="col-md-12 form-control" name='metier'>
-	<option>Cadre privé</option>
-	<option>Cadre de la fonction publique</option>
-	<option>Employé</option>
-	<option>Employé de la fonction publique</option>
-	<option>Commerçant</option>
-	<option>Artisan</option>
+	<?php foreach($metier as $job):
+	echo"<option>".$job."</option>";
+	endforeach;
+	?>	
 	</select>	
 	</div>
 	<input type='submit' class='col-md-12 form-control btn btn-primary'	value="s'inscrire"/>
 	</form>
 </div>
 <script>
-function select_pays(pays){
+function select_pays(pays,region){
 	/*vérifie toutes les options du select concernant les pays et passe à true le selected si le pays
 	passé en paramètre est dans la liste*/ 
 	var pays_a_selectionner = document.getElementById('pays_a_selectionner');
@@ -62,6 +62,13 @@ function select_pays(pays){
         if (pays_a_selectionner.options[i].text === pays)
 		pays_a_selectionner.options[i].selected = true;
     }
+	/*on passe la région en value de 'region'*/
+	document.getElementById('region').value = region;	
+}
+
+function delete_region(){
+	/*si on change d'option dans le select des pays on appel cette fonction qui supprime le contenu de la région*/
+	document.getElementById('region').value = '';
 }
 
 function maPosition(position) {
@@ -75,16 +82,17 @@ function maPosition(position) {
           if (status === 'OK') {
             if (results[0]) {
 				var pays;
-				var region;
-				var ville
+				var region;				
 				//récupère les éléments de l'adresse
 				var elt = results[0].address_components;
           	for(i in elt){          
 				if(elt[i].types[0] == 'country')
             	pays = elt[i].long_name;
+				if(elt[i].types[0] == 'administrative_area_level_1')
+            	region = elt[i].long_name;
 		  }
 		  //appel de la fonction select_pays()avec le pays trouvé en paramètre
-		  select_pays(pays);			  
+		  select_pays(pays,region);			  
 			  }
 			}
 		});

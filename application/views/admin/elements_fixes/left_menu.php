@@ -23,8 +23,8 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li id='1'class="active"><a href="<?php echo base_url()?>cms/1"><i class="fa fa-circle-o text-red"></i> Voir</a></li>
-            <li id='2'><a href="<?php echo base_url()?>cms/2"><i class="fa fa-circle-o text-red"></i> Créer </a></li>
+            <li id='active1' class="active"><a href="<?php echo base_url()?>admin/view/0"><i class="fa fa-circle-o text-red"></i> Voir</a></li>
+            <li id='active2'><a href="<?php echo base_url()?>admin/view/1"><i class="fa fa-circle-o text-red"></i> Créer </a></li>
           </ul>         
         </li>   
       </ul>
@@ -32,15 +32,15 @@
     <!-- /.sidebar -->
   </aside>
   <script>
- /*window.onload = active(<?php echo $nb;?>);
+ window.onload = active(<?php echo $nb;?>);
   function active(nb){
-    for(var i=1;i<6;i++){
-      document.getElementById(i).className = '';
+    for(var i = 0; i < 3 ; i++){
+      document.getElementById('active'+i).className = '';
     }
     if(nb>4){
       document.getElementById('a1').className = 'treeview';
-      document.getElementById('a2').className = 'active treeview menu-open';
+      
     }
     document.getElementById(nb).className = 'active';
-  }*/
+  }
   </script>

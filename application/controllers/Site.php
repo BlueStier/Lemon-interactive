@@ -33,8 +33,9 @@ public function __construct()
             case 1 :
             //page d'inscription
             //charge le model contenant la liste des pays et on le passe dans le tableau data
-            $this->load->model('Liste_des_pays_model');
-            $data['country'] = $this->Liste_des_pays_model->get_contry();
+            $this->load->model('Liste_model');
+            $data['country'] = $this->Liste_model->get_contry();
+            $data['metier'] = $this->Liste_model->get_job();
             $this->load->view('site/elements_fixes/header');            
             $this->load->view('site/inscription',$data);
             $this->load->view('site/elements_fixes/footer');
@@ -75,10 +76,11 @@ public function __construct()
             $email = $this->security->xss_clean($this->input->post('email'));
             $sexe = $this->input->post('sexe');
             $pays = $this->input->post('pays');
+            $region = $this->security->xss_clean($this->input->post('region'));
             $metier = $this->input->post('metier');
             //on charge le model Inscrits et on appel la fonction de create()
             $this->load->model('Inscrits_model');
-            $this->Inscrits_model->create($nom,$prenom,$date_naissance,$email,$sexe,$pays,$metier);
+            $this->Inscrits_model->create($nom,$prenom,$date_naissance,$email,$sexe,$pays,$region,$metier);
             //On charge le model Send_mail et on appel la fonction send()
             $this->load->model('Send_mail_model');
             /*$this->Send_mail_model->send($nom,$prenom,$date_naissance,$email,$sexe,$pays,$metier);*/
