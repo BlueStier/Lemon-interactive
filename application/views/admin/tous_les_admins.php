@@ -14,7 +14,7 @@
             </div>
             <div class='row'>
         <?php foreach($admin_item as $u):
-          if($u['id'] != $id){?>
+          if($u['id'] != $id ){?>
         <div class="col-md-4">
           <!-- Widget: user widget style 1 -->
           <div class="box box-widget widget-user-2">
@@ -26,11 +26,11 @@
               </div>
               <!-- /.widget-user-image -->
               <h3 class="widget-user-username"><?php echo $u['pseudo']; ?></h3>
-              <h5 class="widget-user-desc"><?php echo $u['date_enregistrement']; ?></h5>
+              <h5 class="widget-user-desc">Enregistré le :<?php echo $u['date_enregistrement']; ?></h5>
             </div>
             <div class="box-footer no-padding">
               <ul class="nav nav-stacked">
-                <li><a href="<?php echo base_url().'cms/updateUser/'.$u['id'];?>">Modifer<i class="pull-right fa fa-pencil text-green"></i></i></a></li>
+                <li><a href="<?php echo base_url().'admin/update_admin/'.$u['id'];?>">Modifer<i class="pull-right fa fa-pencil text-green"></i></i></a></li>
                 <li><a data-toggle="modal" data-target="#modal-danger<?php echo $u["id"]?>" >Supprimer<i class="pull-right fa fa-trash text-blue"></i></a></li>
             </ul>
             </div>
@@ -53,8 +53,8 @@
               <div class="modal-footer">
                 <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Annuler</button>
                 <?php echo validation_errors(); 
-                      echo form_open('cms/deleteUser/');?>
-                      <input type="hidden" name="id_user" value='<?php echo $u["id"] ?>'/>
+                      echo form_open('admin/delete_admin/');?>
+                      <input type="hidden" name="id" value='<?php echo $u["id"] ?>'/>
                 <button type="submit" class="btn btn-outline" >Confirmer la suppression</button>
                 </form>
               </div>

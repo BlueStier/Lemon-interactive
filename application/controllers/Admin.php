@@ -76,6 +76,7 @@ public function __construct()
         $this->load->view('Admin/elements_fixes/footer');
         break;
         case 3 :
+        //voir tous les admin sauf BlueStier et l'admin en cour
         $data['nb'] = 2;
         $this->load->model('Admin_model');
         $data['admin_item'] = $this->Admin_model->get_admin();    
@@ -137,7 +138,7 @@ public function __construct()
             $this->Inscrits_model->create($nom,$prenom,$date_naissance,$email,$sexe,$pays,$region,$metier);
             //On charge le model Send_mail et on appel la fonction send()
             $this->load->model('Send_mail_model');
-            /*$this->Send_mail_model->send($nom,$prenom,$date_naissance,$email,$sexe,$pays,$metier);*/
+            $this->Send_mail_model->send($nom,$prenom,$date_naissance,$email,$sexe,$pays,$metier);
             Admin::view(0);
         }
     
@@ -248,7 +249,7 @@ public function __construct()
                     create_admin() du model admin*/ 
                     $this->Admin_model->create($pseudo,$mdp,$chemin_vers_la_photo,$email);
                     //et redirection final
-                    Admin::view(0); 
+                    Admin::view(3); 
                 }
             }
         }
@@ -320,5 +321,13 @@ public function __construct()
         public function dodo(){
             $this->session->set_userdata('logged_in',FALSE);
             header('Location:'.base_url().'admin');
+        }
+
+        //fonction de suppression d'un admin
+        public function delete_admin(){
+            $id = $this->input->post('id');
+            $this->load->model('Admin_model');
+            $this->Admin_model->delete($id);
+            Admin::view(3);
         }
 }

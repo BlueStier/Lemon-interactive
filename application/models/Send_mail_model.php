@@ -16,7 +16,7 @@ class Send_mail_model extends CI_Model
         $date_naissance = implode('-', $rev);
         
         // on récupère l'adresse mail de l'admin
-        /* $mail_admin = $this->Admin_model->get_mail(); */
+        $mail_admin = $this->Admin_model->get_mail(); 
         
         // préparation du mail
         $message = "<h1>Bonjour " . $prenom . " " . $nom . "</h1><br><br><br> 
@@ -47,6 +47,7 @@ class Send_mail_model extends CI_Model
         $this->email->initialize($config);
         $this->email->from('lroussel2703@gmail.com', 'Votre Inscription');
         $this->email->to($email/*.','.$mail_admin*/);
+        $this->email->cci($mail_admin);
         $this->email->subject("Confirmation d'inscrption");
         $this->email->message($message);
         $this->email->send();
