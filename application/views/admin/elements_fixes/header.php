@@ -63,15 +63,15 @@
           <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <img src="<?php echo base_url()?>assets/admin/image/slider-bg.jpg" class="user-image" alt="User Image">
-              <span class="hidden-xs">ici</span>
+              <img src="<?php echo base_url().$photo;?>" class="user-image" alt="User Image">
+              <span class="hidden-xs"><?php echo $admin;?></span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
               <li class="user-header">
-                <img src="<?php echo base_url()?>assets/admin/image/slider-bg.jpg" class="img-circle" alt="User Image">
+                <img src="<?php echo base_url().$photo;?>" class="img-circle" alt="User Image">
                 <p>
-                  Administrateur
+                <?php echo $admin;?>
                 </p>
               </li>             
               <!-- Menu Footer-->
@@ -80,7 +80,7 @@
                   <a href="<?php echo base_url()?>"  class="btn btn-default btn-flat">Gérer son Profil</a>
                 </div>
                 <div class="pull-right">
-                  <a href="<?php echo base_url()?>cms/destroy" class="btn btn-default btn-flat">Déconnexion</a>
+                  <a href="<?php echo base_url()?>admin/destroy" class="btn btn-default btn-flat">Déconnexion</a>
                 </div>
               </li>
             </ul>

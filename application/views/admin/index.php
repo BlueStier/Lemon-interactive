@@ -27,8 +27,8 @@
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
-<?php if( isset($user)){ ?>
-<meta http-equiv='refresh' content="1800; URL=<?php echo base_url().'cms/destroy'?> ">
+<?php if( isset($admin)){ ?>
+<meta http-equiv='refresh' content="1800; URL=<?php echo base_url().'admin/destroy'?> ">
   <body class="hold-transition lockscreen">
 <!-- Automatic element centering -->
 <div class="lockscreen-wrapper">
@@ -37,18 +37,18 @@
   </div>
   <!-- User name -->
   
-  <div class="lockscreen-name"><?php if(isset($error)){echo $error['error'].'<br>';}; ?><?php echo $user ?></div>
+  <div class="lockscreen-name"><?php if(isset($error)){echo $error['error'].'<br>';}; ?><?php echo $admin ?></div>
   
 
   <!-- START LOCK SCREEN ITEM -->
   <div class="lockscreen-item">
     <!-- lockscreen image -->
     <div class="lockscreen-image">
-      <img src="<?php echo base_url().$photouser;?>" alt="User Image">
+      <img src="<?php echo base_url().$photo;?>" alt="User Image">
     </div>
     <!-- /.lockscreen-image -->
     <?php  echo validation_errors();
-                  echo form_open_multipart('login/connect');?>
+                  echo form_open_multipart('admin/connect');?>
     <!-- lockscreen credentials (contains the form) -->
     <div class="lockscreen-credentials">
       <div class="input-group">
@@ -68,7 +68,7 @@
     Entrer votre mot de passe pour réactiver votre session
   </div>
   <div class="text-center">
-    <a href="<?php echo base_url()?>cms/destroy">Se connecter avec un autre utilisateur</a>
+    <a href="<?php echo base_url()?>admin/destroy">Se connecter avec un autre utilisateur</a>
   </div>
   <div class="lockscreen-footer text-center">
   <strong>Copyright &copy; 2018-BlueStier</strong> All rights

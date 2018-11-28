@@ -54,14 +54,22 @@
 	</form>
 </div>
 <script>
-function select_pays(pays,region){
+function select_pays(pays,region){	
 	/*vérifie toutes les options du select concernant les pays et passe à true le selected si le pays
 	passé en paramètre est dans la liste*/ 
-	var pays_a_selectionner = document.getElementById('pays_a_selectionner');
-    for (var i = 0; i < pays_a_selectionner.options.length; ++i) {
-        if (pays_a_selectionner.options[i].text === pays)
-		pays_a_selectionner.options[i].selected = true;
-    }
+	var pays_a_selectionner = document.getElementById('pays_a_selectionner');	
+	$('#pays_a_selectionner').find('option').each(function(){		
+        if ($(this).val() === pays) {			
+            $(this).prop('selected',true);
+			
+        }
+    });
+    /*for (var i = 0; i < pays_a_selectionner.options.length; ++i) {
+        if (pays_a_selectionner.options[i].text === pays){
+		
+		}*/
+		//pays_a_selectionner.options[i].selected = true;
+    //}
 	/*on passe la région en value de 'region'*/
 	document.getElementById('region').value = region;	
 }
@@ -71,23 +79,23 @@ function delete_region(){
 	document.getElementById('region').value = '';
 }
 
-function maPosition(position) {
+function maPosition(position) {	
 	//récupère la latitude et la longitude  
   var latitude = position.coords.latitude;
-  var longitude = position.coords.longitude;
+  var longitude = position.coords.longitude;  
   //google map api 
   var geocoder = new google.maps.Geocoder();
 	var latlng = {lat: parseFloat(latitude), lng: parseFloat(longitude)};
-	geocoder.geocode({'location': latlng}, function(results, status) {
-          if (status === 'OK') {
+	geocoder.geocode({'location': latlng}, function(results, status) {		
+          if (status === 'OK') {			  
             if (results[0]) {
 				var pays;
-				var region;				
+				var region;								
 				//récupère les éléments de l'adresse
 				var elt = results[0].address_components;
           	for(i in elt){          
 				if(elt[i].types[0] == 'country')
-            	pays = elt[i].long_name;
+            	pays = elt[i].long_name;				
 				if(elt[i].types[0] == 'administrative_area_level_1')
             	region = elt[i].long_name;
 		  }
@@ -97,10 +105,22 @@ function maPosition(position) {
 			}
 		});
 }
+
+ 
+ function errorfunction(error){
+	 console.log(error);
+	    switch(error.code) {
+	        case error.TIMEOUT:
+	            alert('temps');
+	        break;
+	    }
+	} 
+	
+			
 	//utilise l'api de geolocalisation du navigateur et appel la fonction maPosition
-if(navigator.geolocation){
-  navigator.geolocation.getCurrentPosition(maPosition);
+if(navigator.geolocation)		
+  navigator.geolocation.getCurrentPosition(maPosition,errorfunction,{maximumAge:0, timeout:2000});
   
-  } 
+   
 </script>
    

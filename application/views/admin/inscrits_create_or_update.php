@@ -194,7 +194,7 @@
     <div class="pull-right hidden-xs">
       <b>Version</b> 1
     </div>
-    <strong>Copyright &copy; 2018-BlueStier</strong> All rights
+    <strong>Copyright &copy; 2018-BlueStier | Design by AdminLTE</strong> All rights
     reserved.
   </footer>
   <!-- /.control-sidebar -->
