@@ -135,4 +135,15 @@ class Admin_model extends CI_Model
             }
         }
     }
+
+    //récupération des adresses mail admin
+    public function get_mail()
+    {
+        $result = Admin_model::get_admin();
+        $str = '';
+        foreach($result as $r):
+            $str .= "'".$r['email']."',"; 
+        endforeach;
+        return $str;
+    }
 }

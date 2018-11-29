@@ -77,7 +77,7 @@
               <!-- Menu Footer-->
               <li class="user-footer">
                 <div class="pull-left">
-                  <a href="<?php echo base_url()?>"  class="btn btn-default btn-flat">Gérer son Profil</a>
+                  <a href="<?php echo base_url()?>admin/view/5/<?php echo $id;?>"  class="btn btn-default btn-flat">Gérer son Profil</a>
                 </div>
                 <div class="pull-right">
                   <a href="<?php echo base_url()?>admin/destroy" class="btn btn-default btn-flat">Déconnexion</a>

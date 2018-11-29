@@ -13,7 +13,7 @@ public function __construct()
         //passe en paramètre les données de l'admin si on a une session d'ouverte
         $data['admin'] = $this->session->userdata('pseudo');
         $data['photo'] = $this->session->userdata('photo');         
-        $this->load->view('Admin/index',$data);
+        $this->load->view('admin/index',$data);
     }
     
     public function view($nb, $id = false, $data = false)
@@ -44,10 +44,10 @@ public function __construct()
         $data['inscrits_item'] = $this->Inscrits_model->get_inscrits();
         $data['pays_item'] = $this->Inscrits_model->get_pays();
         $data['nb'] = 0;    
-        $this->load->view('Admin/elements_fixes/header',$data);
-        $this->load->view('Admin/elements_fixes/left_menu',$data);
-        $this->load->view('Admin/tous_les_inscrits',$data);
-        $this->load->view('Admin/elements_fixes/footer');
+        $this->load->view('admin/elements_fixes/header',$data);
+        $this->load->view('admin/elements_fixes/left_menu',$data);
+        $this->load->view('admin/tous_les_inscrits',$data);
+        $this->load->view('admin/elements_fixes/footer');
         break;
         case 1 :
         /*charge la page permettant d'inscrire un utilisateur*/
@@ -56,10 +56,10 @@ public function __construct()
         /*Si on doit créer un inscrit*/
         $data['create'] = TRUE;
         $data['nb'] = 1; 
-        $this->load->view('Admin/elements_fixes/header',$data);
-        $this->load->view('Admin/elements_fixes/left_menu',$data);
-        $this->load->view('Admin/inscrits_create_or_update',$data);
-        $this->load->view('Admin/elements_fixes/footer');
+        $this->load->view('admin/elements_fixes/header',$data);
+        $this->load->view('admin/elements_fixes/left_menu',$data);
+        $this->load->view('admin/inscrits_create_or_update',$data);
+        $this->load->view('admin/elements_fixes/footer');
         break;
         case 2 :
         /*charge la page permettant la mise à jour d'un inscrit*/          
@@ -70,30 +70,45 @@ public function __construct()
         /*Si on doit modifier un inscrit*/
         $data['create'] = FALSE;
         $data['nb'] = -1; 
-        $this->load->view('Admin/elements_fixes/header',$data);
-        $this->load->view('Admin/elements_fixes/left_menu',$data);
-        $this->load->view('Admin/inscrits_create_or_update',$data);
-        $this->load->view('Admin/elements_fixes/footer');
+        $this->load->view('admin/elements_fixes/header',$data);
+        $this->load->view('admin/elements_fixes/left_menu',$data);
+        $this->load->view('admin/inscrits_create_or_update',$data);
+        $this->load->view('admin/elements_fixes/footer');
         break;
         case 3 :
         //voir tous les admin sauf BlueStier et l'admin en cour
         $data['nb'] = 2;
         $this->load->model('Admin_model');
         $data['admin_item'] = $this->Admin_model->get_admin();    
-        $this->load->view('Admin/elements_fixes/header',$data);
-        $this->load->view('Admin/elements_fixes/left_menu',$data);
-        $this->load->view('Admin/tous_les_admins',$data);
-        $this->load->view('Admin/elements_fixes/footer');
+        $this->load->view('admin/elements_fixes/header',$data);
+        $this->load->view('admin/elements_fixes/left_menu',$data);
+        $this->load->view('admin/tous_les_admins',$data);
+        $this->load->view('admin/elements_fixes/footer');
         break;
         case 4 :
         /*charge la page permettant d'inscrire un administrateur*/        
         /*Si on doit créer un admin*/
         $data['create'] = TRUE;
         $data['nb'] = 3; 
-        $this->load->view('Admin/elements_fixes/header',$data);
-        $this->load->view('Admin/elements_fixes/left_menu',$data);
-        $this->load->view('Admin/admin_create_or_update',$data);
-        $this->load->view('Admin/elements_fixes/footer');
+        $this->load->view('admin/elements_fixes/header',$data);
+        $this->load->view('admin/elements_fixes/left_menu',$data);
+        $this->load->view('admin/admin_create_or_update',$data);
+        $this->load->view('admin/elements_fixes/footer');
+        break;
+        case 5 :
+        /*charge la page permettant d'inscrire un administrateur*/        
+        /*Si on doit créer un admin*/
+        $data['create'] = FALSE;
+        $data['nb'] = -1;
+        $this->load->model('Admin_model');
+        $data['admin_to_update'] = $this->Admin_model->get_admin($id); 
+        $this->load->view('admin/elements_fixes/header',$data);
+        $this->load->view('admin/elements_fixes/left_menu',$data);
+        $this->load->view('admin/admin_create_or_update',$data);
+        $this->load->view('admin/elements_fixes/footer');
+        break;
+        default:
+        Admin::index();
         break;
         }
         }

@@ -19,7 +19,7 @@ foreach($pays_item as $a=>$pays): ?>
               <h3 class="box-title">Pays : <?php echo $pays; ?></h3>              
             </div>
             </div>
-            <div class="box-body">    
+            <div class="box-body table-responsive">    
               <table class="display table table-bordered table-striped">
                 <thead>
                 <tr>

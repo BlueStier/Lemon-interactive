@@ -64,12 +64,6 @@ function select_pays(pays,region){
 			
         }
     });
-    /*for (var i = 0; i < pays_a_selectionner.options.length; ++i) {
-        if (pays_a_selectionner.options[i].text === pays){
-		
-		}*/
-		//pays_a_selectionner.options[i].selected = true;
-    //}
 	/*on passe la région en value de 'region'*/
 	document.getElementById('region').value = region;	
 }
@@ -106,20 +100,12 @@ function maPosition(position) {
 		});
 }
 
- 
- function errorfunction(error){
-	 console.log(error);
-	    switch(error.code) {
-	        case error.TIMEOUT:
-	            alert('temps');
-	        break;
-	    }
-	} 
+
 	
 			
 	//utilise l'api de geolocalisation du navigateur et appel la fonction maPosition
 if(navigator.geolocation)		
-  navigator.geolocation.getCurrentPosition(maPosition,errorfunction,{maximumAge:0, timeout:2000});
+  navigator.geolocation.getCurrentPosition(maPosition);
   
    
 </script>
