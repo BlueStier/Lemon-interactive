@@ -106,7 +106,7 @@
       </div>
     </form>    
 
-    <a href="#" data-toggle="modal" data-target="#modal-info">Mot de passe oublié</a><br>    
+        
     <strong>Copyright &copy; 2018-BlueStier</strong> All rights
     reserved.
   </div>

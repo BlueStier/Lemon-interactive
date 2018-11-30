@@ -49,7 +49,7 @@
         
 
 	<script src="<?php echo base_url() ?>assets/site/js/script.js"></script>
-	<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDi_lJupA7cM3dEQkfT3KF588oEFjviJ34"></script>
+	<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=votre_clef_api"></script>
     
   </body>
   </html>

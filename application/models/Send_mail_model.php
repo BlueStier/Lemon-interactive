@@ -5,7 +5,7 @@ class Send_mail_model extends CI_Model
 
     public function __construct()
     {
-         $this->load->model('Admin_model'); 
+        $this->load->model('Admin_model');
     }
 
     public function send($nom, $prenom, $date_naissance, $email, $sexe, $pays, $metier)
@@ -16,7 +16,7 @@ class Send_mail_model extends CI_Model
         $date_naissance = implode('-', $rev);
         
         // on récupère l'adresse mail de l'admin
-        $mail_admin = $this->Admin_model->get_mail(); 
+        $mail_admin = $this->Admin_model->get_mail();
         
         // préparation du mail
         $message = "<h1>Bonjour " . $prenom . " " . $nom . "</h1><br><br><br> 
@@ -35,7 +35,11 @@ class Send_mail_model extends CI_Model
         
         // initialisation de la librairie
         $this->load->library('email');
-        $config['protocols'] = array('mail','sendmail','smtp');
+        $config['protocols'] = array(
+            'mail',
+            'sendmail',
+            'smtp'
+        );
         $config['smtp_host'] = 'non du serveur';
         $config['smtp_port'] = 'port ex: 465';
         $config['smtp_user'] = 'votre_mail@mon_site.com';

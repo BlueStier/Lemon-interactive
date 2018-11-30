@@ -30,7 +30,7 @@
                 <div class="form-group">
                   <label class="col-sm-2 control-label">Mot de passe : </label>
                   <div class="col-sm-10">
-                  <input type='password'class="form-control" name="mdp" placeholder="Entrez le mot de passe " required>
+                  <input type='password' class="form-control" name="mdp" placeholder="Entrez le mot de passe " required>
                   </div>
                 </div>
                 <div class="form-group">
@@ -74,7 +74,7 @@
       <div class="box-body">
       <?php             if(isset($error)){echo $error['error'];};
                         echo validation_errors();
-                        echo form_open_multipart('admin/create_admin');?>
+                        echo form_open_multipart('admin/update_admin/'.$admin_to_update['id']);?>
                       <div class="form-group">
                         <label class="col-sm-2 control-label">Pseudo : </label>
                         <div class="col-sm-10">
@@ -90,7 +90,7 @@
                       <div class="form-group">
                         <label class="col-sm-2 control-label">Mot de passe : </label>
                         <div class="col-sm-10">
-                        <input type='password'class="form-control" name="mdp" placeholder="Entrez le mot de passe " required>
+                        <input type='password' class="form-control" name="mdp" placeholder="Entrez le mot de passe " required>
                         </div>
                       </div>
                       <div class="form-group">
@@ -98,14 +98,15 @@
                         <div class="col-sm-10">
                         <input type='password' class="form-control" name="conf_mdp" placeholder="Entrez une 2ème fois le mot de passe " required>
                         </div>
-                      </div><div class="form-group">
+                      </div>
+                      <div class="form-group">
                 <label class="col-sm-2 control-label">Concerver cette photo </label>
                 <img class='col-sm-6' style="border: 1px solid #ddd;border-radius: 4px;padding: 1px;vertical-align: top;width:100px;" src='<?php echo base_url().$admin_to_update['path_photo'] ?>'/>
                 <div class="col-sm-2">
-                <input type="radio" name='radioU' onClick='visibleP(true);' value="Non" >Non     
+                <input type="radio" name='conserv' onClick='visibleP(true);' value="Non" >Non     
                 </div>
                 <div class="col-sm-2">
-                <input type="radio" name='radioU' onClick='visibleP(false);' value="Oui"checked>Oui     
+                <input type="radio" name='conserv' onClick='visibleP(false);' value="Oui" checked>Oui     
                 </div>                                
                 </div>
                 <div id="photoU" class="form-group">
@@ -145,3 +146,9 @@
      <div class="control-sidebar-bg"></div>
      </div>
      <!-- ./wrapper -->
+     <script>
+  document.getElementById("photoU").style.display ='none';
+  function visibleP(choix){
+  (choix ? document.getElementById('photoU').style.display='block' : document.getElementById('photoU').style.display='none'); 
+}
+  </script>
